@@ -1,0 +1,243 @@
+import math
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+BatchNorm2d = nn.BatchNorm2d
+bn_mom = 0.1
+
+
+def conv3x3(in_planes, out_planes, stride=1):
+    """3x3 convolution with padding"""
+    return nn.Conv2d(in_planes, out_planes, kernel_size=3, stride=stride,
+                     padding=1, bias=False)
+
+
+class BasicBlock(nn.Module):
+    expansion = 1
+
+    def __init__(self, inplanes, planes, stride=1, downsample=None, no_relu=False):
+        super(BasicBlock, self).__init__()
+        self.conv1 = conv3x3(inplanes, planes, stride)
+        self.bn1 = BatchNorm2d(planes, momentum=bn_mom)
+        self.relu = nn.ReLU(inplace=True)
+        self.conv2 = conv3x3(planes, planes)
+        self.bn2 = BatchNorm2d(planes, momentum=bn_mom)
+        self.downsample = downsample
+        self.stride = stride
+        self.no_relu = no_relu
+
+    def forward(self, x):
+        residual = x
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+
+        if self.downsample is not None:
+            residual = self.downsample(x)
+
+        out += residual
+
+        if self.no_relu:
+            return out
+        else:
+            return self.relu(out)
+
+class Bottleneck(nn.Module):
+    expansion = 2
+
+    def __init__(self, inplanes, planes, stride=1, downsample=None, no_relu=False):
+        super(Bottleneck, self).__init__()
+        self.conv1 = nn.Conv2d(inplanes, planes, kernel_size=1, bias=False)
+        self.bn1 = nn.BatchNorm2d(planes, momentum=bn_mom)
+        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=stride,
+                               padding=1, bias=False)
+        self.bn2 = nn.BatchNorm2d(planes, momentum=bn_mom)
+        self.conv3 = nn.Conv2d(planes, planes * self.expansion, kernel_size=1,
+                               bias=False)
+        self.bn3 = nn.BatchNorm2d(planes * self.expansion,
+                               momentum=bn_mom)
+        self.relu = nn.ReLU(inplace=True)
+        self.downsample = downsample
+        self.stride = stride
+        self.no_relu = no_relu
+
+    def forward(self, x):
+        residual = x
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+        out = self.relu(out)
+
+        out = self.conv3(out)
+        out = self.bn3(out)
+
+        if self.downsample is not None:
+            residual = self.downsample(x)
+
+        out += residual
+        if self.no_relu:
+            return out
+        else:
+            return self.relu(out)
+
+
+class DualResNet(nn.Module):
+
+    def __init__(self, block, layers, num_classes=1000):
+        super(DualResNet, self).__init__()
+
+        #self.inplanes = 64
+        #fuse_planes = 128
+        highres_planes = 64
+
+        self.conv1 =  nn.Sequential(
+                          nn.Conv2d(3,32,kernel_size=3, stride=2, padding=1),
+                          BatchNorm2d(32, momentum=bn_mom),
+                          nn.ReLU(inplace=True),
+                          nn.Conv2d(32,32,kernel_size=3, stride=2, padding=1),
+                          BatchNorm2d(32, momentum=bn_mom),
+                          nn.ReLU(inplace=True),
+                      )
+
+        self.relu = nn.ReLU(inplace=False)
+        self.layer1 = self._make_layer(block, 32, 32, layers[0])
+        self.layer2 = self._make_layer(block, 32, 64, layers[1], stride=2)
+        self.layer3 = self._make_layer(block, 64, 128, layers[2], stride=2)
+        self.layer4 = self._make_layer(block, 128, 256, layers[3], stride=2)
+
+        self.compression3 = nn.Sequential(
+                                          nn.Conv2d(128, highres_planes, kernel_size=1, bias=False),
+                                          BatchNorm2d(highres_planes, momentum=bn_mom),
+                                          )
+
+        self.compression4 = nn.Sequential(
+                                          nn.Conv2d(256, highres_planes, kernel_size=1, bias=False),
+                                          BatchNorm2d(highres_planes, momentum=bn_mom),
+                                          )
+
+        self.down3 = nn.Sequential(
+                                   nn.Conv2d(highres_planes, 128, kernel_size=3, stride=2, padding=1, bias=False),
+                                   BatchNorm2d(128, momentum=bn_mom),
+                                   )
+
+        self.down4 = nn.Sequential(
+                                   nn.Conv2d(highres_planes, 128, kernel_size=3, stride=2, padding=1, bias=False),
+                                   BatchNorm2d(128, momentum=bn_mom),
+                                   nn.ReLU(inplace=True),
+                                   nn.Conv2d(128, 256, kernel_size=3, stride=2, padding=1, bias=False),
+                                   BatchNorm2d(256, momentum=bn_mom),
+                                   )
+
+        self.layer3_ = self._make_layer(BasicBlock, 64, highres_planes, 2)
+
+        self.layer4_ = self._make_layer(BasicBlock, highres_planes, highres_planes, 2)
+
+        self.layer5_ = self._make_layer(Bottleneck, 64, 64, 1)
+
+        self.down5 = nn.Sequential(
+                                     nn.Conv2d(128, 256, kernel_size=3, stride=2, padding=1, bias=False),
+                                     BatchNorm2d(256, momentum=bn_mom),
+                                     nn.ReLU(inplace=True),
+                                     nn.Conv2d(256, 512, kernel_size=3, stride=2, padding=1, bias=False),
+                                     BatchNorm2d(512, momentum=bn_mom),
+                                     )
+
+        self.layer5 =  self._make_layer(Bottleneck, 256, 256, 1)
+
+        self.last_layer = nn.Sequential(
+                                        nn.Conv2d(512, 1024, kernel_size=1, stride=1, padding=0, bias=False),
+                                        BatchNorm2d(1024, momentum=bn_mom),
+                                        nn.ReLU(inplace=True),
+                                        nn.AdaptiveAvgPool2d((1, 1)),
+                                        )
+
+        self.linear = nn.Linear(1024, num_classes)
+
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
+            elif isinstance(m, BatchNorm2d):
+                nn.init.constant_(m.weight, 1)
+                nn.init.constant_(m.bias, 0)
+
+
+    def _make_layer(self, block, inplanes, planes, blocks, stride=1):
+        downsample = None
+        if stride != 1 or inplanes != planes * block.expansion:
+            downsample = nn.Sequential(
+                nn.Conv2d(inplanes, planes * block.expansion,
+                          kernel_size=1, stride=stride, bias=False),
+                nn.BatchNorm2d(planes * block.expansion, momentum=bn_mom),
+            )
+
+        layers = []
+        if block == 1:
+            layers.append(block(inplanes, planes, stride, downsample, no_relu=True))
+        else:
+            layers.append(block(inplanes, planes, stride, downsample))    
+        inplanes = planes * block.expansion
+        for i in range(1, blocks):
+            if i == (blocks-1):
+                layers.append(block(inplanes, planes, stride=1, no_relu=True))
+            else:
+                layers.append(block(inplanes, planes, stride=1, no_relu=False))
+
+        return nn.Sequential(*layers)
+
+
+    def forward(self, x):
+
+        width_output = x.shape[-1] // 8
+        height_output = x.shape[-2] // 8
+        layers = []
+
+        x = self.conv1(x)
+
+        x = self.layer1(x)
+        layers.append(x)
+
+        x = self.layer2(self.relu(x))
+        layers.append(x)
+  
+        x = self.layer3(self.relu(x))
+        layers.append(x)
+        x_ = self.layer3_(self.relu(layers[1]))
+
+        x = x + self.down3(self.relu(x_))
+        x_ = x_ + F.interpolate(
+                        self.compression3(self.relu(layers[2])),
+                        size=[height_output, width_output],
+                        mode='bilinear')
+
+        x = self.layer4(self.relu(x))
+        layers.append(x)
+        x_ = self.layer4_(self.relu(x_))
+
+        x = x + self.down4(self.relu(x_))
+        x_ = x_ + F.interpolate(
+                        self.compression4(self.relu(layers[3])),
+                        size=[height_output, width_output],
+                        mode='bilinear')
+
+        x = self.layer5(self.relu(x))+ self.down5(self.relu(self.layer5_(self.relu(x_))))
+
+        x = self.last_layer(self.relu(x))
+        x = x.view(-1, 1024)
+        x = self.linear(x)       
+        return x
+def get_model():
+    return DualResNet(block=BasicBlock, layers=[2, 2, 2, 2])
+
+
+
+
+
