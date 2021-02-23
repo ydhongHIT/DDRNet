@@ -91,12 +91,13 @@ class Bottleneck(nn.Module):
 
 class DualResNet(nn.Module):
 
-    def __init__(self, block, layers, num_classes=1000, planes=64):
+    def __init__(self, block, layers, num_classes=1000, planes=64, last_planes=2048):
         super(DualResNet, self).__init__()
 
         #self.inplanes = 64
         #fuse_planes = 128
         highres_planes = planes * 2
+        self.last_planes = last_planes
 
         self.conv1 =  nn.Sequential(
                           nn.Conv2d(3,planes,kernel_size=3, stride=2, padding=1),
@@ -153,13 +154,13 @@ class DualResNet(nn.Module):
         self.layer5 =  self._make_layer(Bottleneck, planes * 8, planes * 8, 1)
 
         self.last_layer = nn.Sequential(
-                                        nn.Conv2d(planes * 16, 2048, kernel_size=1, stride=1, padding=0, bias=False),
-                                        BatchNorm2d(2048, momentum=bn_mom),
+                                        nn.Conv2d(planes * 16, last_planes, kernel_size=1, stride=1, padding=0, bias=False),
+                                        BatchNorm2d(last_planes, momentum=bn_mom),
                                         nn.ReLU(inplace=True),
                                         nn.AdaptiveAvgPool2d((1, 1)),
                                         )
 
-        self.linear = nn.Linear(2048, num_classes)
+        self.linear = nn.Linear(last_planes, num_classes)
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -230,12 +231,12 @@ class DualResNet(nn.Module):
         x = self.layer5(self.relu(x))+ self.down5(self.relu(self.layer5_(self.relu(x_))))
 
         x = self.last_layer(self.relu(x))
-        x = x.view(-1, 2048)
+        x = x.view(-1, self.last_planes)
         x = self.linear(x)       
         return x
 
 def get_model():
-    return DualResNet(block=BasicBlock, layers=[2, 2, 2, 2], planes=64)
+    return DualResNet(block=BasicBlock, layers=[2, 2, 2, 2], planes=64, last_planes=2048)
 
 
 
