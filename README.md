@@ -7,7 +7,7 @@
 The overall architecture of our methods.
 
 ![avatar](./figs/DAPPM.png)
-The details of "Deep Aggregation Pyramid Pooling Module (DAPPM).
+The details of "Deep Aggregation Pyramid Pooling Module(DAPPM)".
 
 # Usage
 
