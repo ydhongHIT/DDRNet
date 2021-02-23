@@ -235,7 +235,7 @@ class DualResNet(nn.Module):
         return x
 
 def get_model():
-    return DualResNet(block=BasicBlock, layers=[2, 2, 2, 2])
+    return DualResNet(block=BasicBlock, layers=[2, 2, 2, 2], planes=64)
 
 
 
