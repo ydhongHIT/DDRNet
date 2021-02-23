@@ -16,15 +16,15 @@ HRNet-Semantic-Segmentation-pytorch-v1.1](https://github.com/HRNet/HRNet-Semanti
 
 # Pretrained models
 
-DDRNet_23_slim on ImageNet(top-1:):
+DDRNet_23_slim on ImageNet(top-1 error:29.8):
 
-DDRNet_23 on ImageNet(top-1:):
+DDRNet_23 on ImageNet(top-1 error:24.0):
 
-DDRNet_39 on ImageNet(top-1:):
+DDRNet_39 on ImageNet(top-1 error:22.6):
 
-DDRNet_23_slim on Cityscapes(val mIoU:):
+DDRNet_23_slim on Cityscapes(val mIoU:77.8):
 
-DDRNet_23 on Cityscapes(val mIoU:):
+DDRNet_23 on Cityscapes(val mIoU:79.5):
 
 ## Citation
 If you find this repo is useful for your research, Please consider citing our paper:
