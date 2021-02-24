@@ -16,7 +16,7 @@ HRNet-Semantic-Segmentation-pytorch-v1.1](https://github.com/HRNet/HRNet-Semanti
 
 ## Notice
 
-There are some basic training tricks you should employ to reproduce our results including class balance sample, ohem, crop size of 1024x1024. More details can be found in the [paper](https://arxiv.org/abs/2101.06085).
+There are some basic training tricks you should employ to reproduce our results including class balance sample, ohem, crop size of 1024x1024. More details can be found in the [paper](https://arxiv.org/abs/2101.06085). Please keep "align_corners=False" in all places if you want to use our pretrained models for evaluation directly.
 
 ## Pretrained models
 
