@@ -22,9 +22,9 @@ There are some basic training tricks you should employ to reproduce our results 
 
 DDRNet_23_slim on ImageNet(top-1 error:29.8):
 
-DDRNet_23 on ImageNet(top-1 error:24.0):
+DDRNet_23 on ImageNet(top-1 error:24.1):
 
-DDRNet_39 on ImageNet(top-1 error:22.6):
+DDRNet_39 on ImageNet(top-1 error:22.7):
 
 DDRNet_23_slim on Cityscapes(val mIoU:77.8):
 
