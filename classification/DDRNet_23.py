@@ -137,9 +137,9 @@ class DualResNet(nn.Module):
                                    BatchNorm2d(planes * 8, momentum=bn_mom),
                                    )
 
-        self.layer3_ = self._make_layer(BasicBlock, planes * 2, highres_planes, 2)
+        self.layer3_ = self._make_layer(block, planes * 2, highres_planes, 2)
 
-        self.layer4_ = self._make_layer(BasicBlock, highres_planes, highres_planes, 2)
+        self.layer4_ = self._make_layer(block, highres_planes, highres_planes, 2)
 
         self.layer5_ = self._make_layer(Bottleneck, highres_planes, highres_planes, 1)
 
