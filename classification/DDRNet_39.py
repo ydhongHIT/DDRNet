@@ -191,10 +191,7 @@ class DualResNet(nn.Module):
             )
 
         layers = []
-        if block == 1:
-            layers.append(block(inplanes, planes, stride, downsample, no_relu=True))
-        else:
-            layers.append(block(inplanes, planes, stride, downsample))    
+        layers.append(block(inplanes, planes, stride, downsample))    
         inplanes = planes * block.expansion
         for i in range(1, blocks):
             if i == (blocks-1):
