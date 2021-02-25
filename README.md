@@ -11,8 +11,12 @@ The details of "Deep Aggregation Pyramid Pooling Module(DAPPM)".
 
 ## Usage
 
-Currently, this repo contains the model codes and pretrained models for classification and semantic segmentation. You can refer to [
-HRNet-Semantic-Segmentation-pytorch-v1.1](https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/pytorch-v1.1) for training and testing our models locally. We will release the whole train and test codes based on it later.
+Currently, this repo contains the model codes and pretrained models for classification and semantic segmentation. 
+
+You can refer to [
+HRNet-Semantic-Segmentation-pytorch-v1.1](https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/pytorch-v1.1) or directly use the [third-party implement](https://github.com/chenjun2hao/DDRNet.pytorch) for training and testing our models locally. Thanks for their works! 
+
+We will release the whole train and test codes later.
 
 ## Notice
 
