@@ -1,7 +1,7 @@
 # The official implementation of "Deep Dual-resolution Networks for Real-time and Accurate Semantic Segmentation of Road Scenes"
  
 ![avatar](./figs/performance.png)
-**Achieve state-of-the-art trade-off between accuracy and speed on cityscapes and camvid, without using inference acceleration and extra data!** 
+**Achieve state-of-the-art trade-off between accuracy and speed on cityscapes and camvid, without using inference acceleration (tensorRT) and extra data (like Mapillary)!** 
 
 ![avatar](./figs/DDRNet_seg.png)
 The overall architecture of our methods.
