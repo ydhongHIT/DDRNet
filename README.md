@@ -28,15 +28,16 @@ Keep "align_corners=False" in all places if you want to use our pretrained model
 
 ## Pretrained models
 
-DDRNet_23_slim on ImageNet(top-1 error:29.8): [link](https://pan.baidu.com/s/15_dzW6Ncj1EOmP20whmngw) keywords: 3vmn
+DDRNet_23_slim on ImageNet(top-1 error:29.8): [baiduyun(keywords:3vmn)](https://pan.baidu.com/s/15_dzW6Ncj1EOmP20whmngw)/[googledrive](https://drive.google.com/file/d/1mg5tMX7TJ9ZVcAiGSB4PEihPtrJyalB4/view?usp=sharing)
 
-DDRNet_23 on ImageNet(top-1 error:24.1): [link](https://pan.baidu.com/s/1XAY3nCE2v1uE4gDJnOJ-Kg) keywords: yd76
+DDRNet_23 on ImageNet(top-1 error:24.1): [baiduyun(keywords:yd76)](https://pan.baidu.com/s/1XAY3nCE2v1uE4gDJnOJ-Kg)/[googledrive](https://drive.google.com/file/d/1VoUsERBeuCaiuQJufu8PqpKKtGvCTdug/view?usp=sharing)
 
-DDRNet_39 on ImageNet(top-1 error:22.7): [link](https://pan.baidu.com/s/1F0q3JOl_7fUz7sRUkHPTbA) keywords: qumr
+DDRNet_39 on ImageNet(top-1 error:22.7): [baiduyun(keywords:qumr)](https://pan.baidu.com/s/1F0q3JOl_7fUz7sRUkHPTbA)/[googledrive]
+(https://drive.google.com/file/d/122CMx6DZBaRRf-dOHYwuDY9vG0_UQ10i/view?usp=sharing)
 
-DDRNet_23_slim on Cityscapes(val mIoU:77.8): [link](https://drive.google.com/file/d/1d_K3Af5fKHYwxSo8HkxpnhiekhwovmiP/view?usp=sharing)
+DDRNet_23_slim on Cityscapes(val mIoU:77.8): [googledrive](https://drive.google.com/file/d/1d_K3Af5fKHYwxSo8HkxpnhiekhwovmiP/view?usp=sharing)
 
-DDRNet_23 on Cityscapes(val mIoU:79.5): [link](https://drive.google.com/file/d/16viDZhbmuc3y7OSsUo2vhA7V6kYO0KX6/view?usp=sharing)
+DDRNet_23 on Cityscapes(val mIoU:79.5): [googledrive](https://drive.google.com/file/d/16viDZhbmuc3y7OSsUo2vhA7V6kYO0KX6/view?usp=sharing)
 
 ## Results on Cityscapes server
 
