@@ -32,8 +32,7 @@ DDRNet_23_slim on ImageNet(top-1 error:29.8): [baiduyun(keywords:3vmn)](https://
 
 DDRNet_23 on ImageNet(top-1 error:24.1): [baiduyun(keywords:yd76)](https://pan.baidu.com/s/1XAY3nCE2v1uE4gDJnOJ-Kg)/[googledrive](https://drive.google.com/file/d/1VoUsERBeuCaiuQJufu8PqpKKtGvCTdug/view?usp=sharing)
 
-DDRNet_39 on ImageNet(top-1 error:22.7): [baiduyun(keywords:qumr)](https://pan.baidu.com/s/1F0q3JOl_7fUz7sRUkHPTbA)/[googledrive]
-(https://drive.google.com/file/d/122CMx6DZBaRRf-dOHYwuDY9vG0_UQ10i/view?usp=sharing)
+DDRNet_39 on ImageNet(top-1 error:22.7): [baiduyun(keywords:qumr)](https://pan.baidu.com/s/1F0q3JOl_7fUz7sRUkHPTbA)/[googledrive](https://drive.google.com/file/d/122CMx6DZBaRRf-dOHYwuDY9vG0_UQ10i/view?usp=sharing)
 
 DDRNet_23_slim on Cityscapes(val mIoU:77.8): [googledrive](https://drive.google.com/file/d/1d_K3Af5fKHYwxSo8HkxpnhiekhwovmiP/view?usp=sharing)
 
