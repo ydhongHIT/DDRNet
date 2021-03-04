@@ -54,7 +54,7 @@ class Bottleneck(nn.Module):
     expansion = 2
 
     def __init__(self, inplanes, planes, stride=1, downsample=None, no_relu=True):
-        super(Bottleneck_last, self).__init__()
+        super(Bottleneck, self).__init__()
         self.conv1 = nn.Conv2d(inplanes, planes, kernel_size=1, bias=False)
         self.bn1 = nn.BatchNorm2d(planes, momentum=bn_mom)
         self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=stride,
@@ -267,7 +267,7 @@ class DualResNet(nn.Module):
 
         self.layer5 =  self._make_layer(Bottleneck, planes * 8, planes * 8, 1, stride=2)
 
-        self.spp = SPP_super(planes * 16, spp_planes, planes * 4)
+        self.spp = DAPPM(planes * 16, spp_planes, planes * 4)
 
         if self.augment:
             self.seghead_extra = segmenthead(highres_planes, head_planes, num_classes)
