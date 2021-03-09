@@ -52,7 +52,7 @@ If you find this repo is useful for your research, Please consider citing our pa
 ```
 @article{hong2021deep,
   title={Deep Dual-resolution Networks for Real-time and Accurate Semantic Segmentation of Road Scenes},
-  author={Hong, Yuanduo and Pan, Huihui and Sun, Weichao and Jia, Yisong and others},
+  author={Hong, Yuanduo and Pan, Huihui and Sun, Weichao and Jia, Yisong},
   journal={arXiv preprint arXiv:2101.06085},
   year={2021}
 }
