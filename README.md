@@ -46,6 +46,8 @@ DDRNet_23: [79.4](https://www.cityscapes-dataset.com/anonymous-results/?id=5766a
 
 DDRNet_39: [80.4](https://www.cityscapes-dataset.com/anonymous-results/?id=c9a859907b83426a71dcdcb08a7c0ad5b69111a45e61e3fdef5df1ddc680268c) [81.9](https://www.cityscapes-dataset.com/anonymous-results/?id=594e60787c8af8203cd37e5094c764a93b5a0c35e1e699d89ce4a64cb9da447b)(multi-scale and flip)
 
+DDRNet_39 1.5x: [82.4](https://www.cityscapes-dataset.com/anonymous-results/?id=3515d66c1dc86c6daf42800c85a2937205658c6a8e5880904f350d8af234db01)(multi-scale and flip)
+
 ## Citation
 If you find this repo is useful for your research, Please consider citing our paper:
 
