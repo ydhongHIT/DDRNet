@@ -30,7 +30,7 @@ Keep "align_corners=False" in all places if you want to use our pretrained model
 
 DDRNet_23_slim on ImageNet(top-1 error:29.8): [googledrive](https://drive.google.com/file/d/1mg5tMX7TJ9ZVcAiGSB4PEihPtrJyalB4/view?usp=sharing)
 
-DDRNet_23_slim on ImageNet(top-1 error:28.4, trained with a batch size of 128, warmup, 300 epoches and label smoothing): [googledrive](https://drive.google.com/file/d/1pjdElEpzfpk4QSb96pVinV5SoraBDJlY/view?usp=sharing)
+DDRNet_23_slim on ImageNet(top-1 error:28.4, trained with a batch size of 128, warmup, cosine learning rate, 300 epoches and label smoothing): [googledrive](https://drive.google.com/file/d/1pjdElEpzfpk4QSb96pVinV5SoraBDJlY/view?usp=sharing)
 
 DDRNet_23 on ImageNet(top-1 error:24.1): [googledrive](https://drive.google.com/file/d/1VoUsERBeuCaiuQJufu8PqpKKtGvCTdug/view?usp=sharing)
 
