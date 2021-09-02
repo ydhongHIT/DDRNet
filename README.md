@@ -53,7 +53,7 @@ DDRNet_39 1.5x: [82.4](https://www.cityscapes-dataset.com/anonymous-results/?id=
 
 ## Test Speed
 
-Set the bias of conv to 'True' and remove the bn (just for testing speed) and refer to this [function](https://github.com/VITA-Group/FasterSeg/blob/master/tools/utils/darts_utils.py#L184).
+Set the bias of conv to 'True' and remove the bn (just for testing speed) and refer to this [function](https://github.com/VITA-Group/FasterSeg/blob/master/tools/utils/darts_utils.py#L184). DDRNet-23-slim can achieve above 130fps by using the [tool](https://github.com/NVIDIA-AI-IOT/torch2trt).
 
 ## Citation
 If you find this repo is useful for your research, Please consider citing our paper:
