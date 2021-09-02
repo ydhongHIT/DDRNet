@@ -51,6 +51,10 @@ DDRNet_39: [80.4](https://www.cityscapes-dataset.com/anonymous-results/?id=c9a85
 
 DDRNet_39 1.5x: [82.4](https://www.cityscapes-dataset.com/anonymous-results/?id=3515d66c1dc86c6daf42800c85a2937205658c6a8e5880904f350d8af234db01)(multi-scale and flip)
 
+## Test Speed
+
+Set the bias of conv to 'True' and remove the bn (just for testing speed) and refer to this function(https://github.com/VITA-Group/FasterSeg/blob/master/tools/utils/darts_utils.py#L184).
+
 ## Citation
 If you find this repo is useful for your research, Please consider citing our paper:
 
