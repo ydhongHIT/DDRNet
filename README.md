@@ -52,8 +52,10 @@ DDRNet_39: [80.4](https://www.cityscapes-dataset.com/anonymous-results/?id=c9a85
 DDRNet_39 1.5x: [82.4](https://www.cityscapes-dataset.com/anonymous-results/?id=3515d66c1dc86c6daf42800c85a2937205658c6a8e5880904f350d8af234db01)(multi-scale and flip)
 
 ## Test Speed
-
-Set the 'scale_factor' to 8 (restore the resolution of predicted masks), set the bias of conv to 'True' and remove the bn (just for testing speed),  and refer to this [function](https://github.com/VITA-Group/FasterSeg/blob/master/tools/utils/darts_utils.py#L184). DDRNet-23-slim can achieve above 130fps by using the [tool](https://github.com/NVIDIA-AI-IOT/torch2trt).
+Evaluate the inference speed on Cityscapes dataset.
+```
+python3 DDRNet_23_slim_eval_speed.py
+```
 
 ## Citation
 If you find this repo is useful for your research, Please consider citing our paper:
