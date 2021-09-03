@@ -56,6 +56,7 @@ Evaluate the inference speed on Cityscapes dataset.
 ```
 python3 DDRNet_23_slim_eval_speed.py
 ```
+DDRNet-23-slim can achieve above 130fps by using the [tool](https://github.com/NVIDIA-AI-IOT/torch2trt).
 
 ## Citation
 If you find this repo is useful for your research, Please consider citing our paper:
