@@ -17,7 +17,7 @@ Currently, this repo contains the model codes and pretrained models for classifi
 You can refer to [
 HRNet-Semantic-Segmentation-pytorch-v1.1](https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/pytorch-v1.1) or directly use the [third-party implementation](https://github.com/chenjun2hao/DDRNet.pytorch) for training and testing our models locally. Thanks for their works! 
 
-We will release the whole train and test codes later.
+For training DDRNet, you can refer to [DDRNet.pytorch](https://github.com/chenjun2hao/DDRNet.pytorch), [Segmentation-Pytorch](https://github.com/Deeachain/Segmentation-Pytorch), [semantic-segmentation](https://github.com/sithu31296/semantic-segmentation). **PaddleSeg** has supported DDRNet-23 now, which achieves **79.85** mIoU.
 
 ## Notice
 
