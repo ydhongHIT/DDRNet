@@ -47,9 +47,9 @@ DDRNet_23(val mIoU:79.5): [googledrive](https://drive.google.com/file/d/16viDZhb
 
 Dataset can be downloaded from the [link](https://paddleseg.bj.bcebos.com/dataset/camvid.tar).
 
-DDRNet_23_slim: [googledrive](https://drive.google.com/file/d/1d_K3Af5fKHYwxSo8HkxpnhiekhwovmiP/view?usp=sharing)
+DDRNet_23_slim: [googledrive](https://drive.google.com/file/d/1He7r8aO2u6y9bIlviee6Z6xgdEBaJZIy/view?usp=sharing)
 
-DDRNet_23: [googledrive](https://drive.google.com/file/d/16viDZhbmuc3y7OSsUo2vhA7V6kYO0KX6/view?usp=sharing)
+DDRNet_23: [googledrive](https://drive.google.com/file/d/1jR-LViRsJ-sMvSD8CKsp4RjbeTm0mrHN/view?usp=sharing)
 
 ## Results on Cityscapes server
 
