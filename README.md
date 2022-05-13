@@ -27,17 +27,29 @@ Keep "align_corners=False" in all places if you want to use our pretrained model
 
 ## Pretrained models
 
-DDRNet_23_slim on ImageNet(top-1 error:29.8): [googledrive](https://drive.google.com/file/d/1mg5tMX7TJ9ZVcAiGSB4PEihPtrJyalB4/view?usp=sharing)
+### ImageNet
+
+DDRNet_23_slim(top-1 error:29.8): [googledrive](https://drive.google.com/file/d/1mg5tMX7TJ9ZVcAiGSB4PEihPtrJyalB4/view?usp=sharing)
 
 DDRNet_23_slim using timm library, maybe helpful to train on own datasets(top-1 error:26.3, trained with a batch size of 256, warmup, cosine learning rate, 300 epoches and label smoothing): [googledrive](https://drive.google.com/file/d/17sgZ8mRJFhsItmdTrifI1rloVq5K1WiC/view?usp=sharing)
 
-DDRNet_23 on ImageNet(top-1 error:24.1): [googledrive](https://drive.google.com/file/d/1VoUsERBeuCaiuQJufu8PqpKKtGvCTdug/view?usp=sharing)
+DDRNet_23(top-1 error:24.1): [googledrive](https://drive.google.com/file/d/1VoUsERBeuCaiuQJufu8PqpKKtGvCTdug/view?usp=sharing)
 
-DDRNet_39 on ImageNet(top-1 error:22.7): [googledrive](https://drive.google.com/file/d/122CMx6DZBaRRf-dOHYwuDY9vG0_UQ10i/view?usp=sharing)
+DDRNet_39(top-1 error:22.7): [googledrive](https://drive.google.com/file/d/122CMx6DZBaRRf-dOHYwuDY9vG0_UQ10i/view?usp=sharing)
 
-DDRNet_23_slim on Cityscapes(val mIoU:77.8): [googledrive](https://drive.google.com/file/d/1d_K3Af5fKHYwxSo8HkxpnhiekhwovmiP/view?usp=sharing)
+### Cityscapes
 
-DDRNet_23 on Cityscapes(val mIoU:79.5): [googledrive](https://drive.google.com/file/d/16viDZhbmuc3y7OSsUo2vhA7V6kYO0KX6/view?usp=sharing)
+DDRNet_23_slim(val mIoU:77.8): [googledrive](https://drive.google.com/file/d/1d_K3Af5fKHYwxSo8HkxpnhiekhwovmiP/view?usp=sharing)
+
+DDRNet_23(val mIoU:79.5): [googledrive](https://drive.google.com/file/d/16viDZhbmuc3y7OSsUo2vhA7V6kYO0KX6/view?usp=sharing)
+
+### CamVid
+
+Dataset can be downloaded from the [link](https://paddleseg.bj.bcebos.com/dataset/camvid.tar).
+
+DDRNet_23_slim: [googledrive](https://drive.google.com/file/d/1d_K3Af5fKHYwxSo8HkxpnhiekhwovmiP/view?usp=sharing)
+
+DDRNet_23: [googledrive](https://drive.google.com/file/d/16viDZhbmuc3y7OSsUo2vhA7V6kYO0KX6/view?usp=sharing)
 
 ## Results on Cityscapes server
 
