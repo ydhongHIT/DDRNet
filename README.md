@@ -49,6 +49,19 @@ Dataset can be downloaded from the [link](https://paddleseg.bj.bcebos.com/datase
 
 DDRNet_23_slim: [googledrive](https://drive.google.com/file/d/1sh71nLdFKq1l89X3xyVO2J0d_3qBZui8/view?usp=sharing)
 
+### [Comma10K](https://github.com/commaai/comma10k)
+ Methods | Val loss | FPS  
+:--:|:--:|:--:
+ UNet-EfficientNetB0     | 0.0495 | 35.6 |   
+ UNet-EfficientNetB4  | 0.0462 | 18.0  |  
+ STDC1-Seg   | 0.0482 | 92.0  | 
+ STDC2-Seg   | 0.0448 | 73.0  |
+ DDRNet_23_slim   | 0.0448 | 166.8  |
+ DDRNet_23   | 0.0433 | 62.7  |
+ DDRNet_39   | 0.0428 | 36.3  |
+ 
+ Please refer to [comma10k-baseline](https://github.com/YassineYousfi/comma10k-baseline) for train and test details. The FPS is tested with our method under the same conditions.
+
 ## Results on Cityscapes server
 
 DDRNet_23_slim: [77.4](https://www.cityscapes-dataset.com/anonymous-results/?id=552a0548931fb49759bde6216f8472f60c470f768ac78b4cd08bf30a3a161e82)
