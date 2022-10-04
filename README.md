@@ -60,7 +60,7 @@ DDRNet_23_slim: [googledrive](https://drive.google.com/file/d/1sh71nLdFKq1l89X3x
  DDRNet_23   | 0.0433 | 62.7  |
  DDRNet_39   | 0.0428 | 36.3  |
  
- Please refer to [comma10k-baseline](https://github.com/YassineYousfi/comma10k-baseline) for train and test details. The FPS is tested with our method under the same conditions.
+ Please refer to [comma10k-baseline](https://github.com/YassineYousfi/comma10k-baseline) for train and test details. The FPS is tested with the method of our paper under the same conditions.
 
 ## Results on Cityscapes server
 
