@@ -89,4 +89,12 @@ If you find this repo is useful for your research, Please consider citing our pa
   journal={arXiv preprint arXiv:2101.06085},
   year={2021}
 }
+
+@article{pan2022deep,
+  title={Deep Dual-Resolution Networks for Real-Time and Accurate Semantic Segmentation of Traffic Scenes},
+  author={Pan, Huihui and Hong, Yuanduo and Sun, Weichao and Jia, Yisong},
+  journal={IEEE Transactions on Intelligent Transportation Systems},
+  year={2022},
+  publisher={IEEE}
+}
 ```
